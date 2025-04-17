@@ -1,3 +1,49 @@
+
+------------------------------------------RESUMO PARA CONFIGURAR GH-PAGES---------------------------------------
+
+    1- ter o repositório no github
+
+    2- Instale o `gh-pages` pacote npm.
+        npm install gh-pages --save-dev
+
+    3- Adicione uma propriedade `homepage` no `package.json`.
+        ```diff
+            {
+            "name": "my-app",
+            "version": "0.1.0",
+            + "homepage": "https://{username}.github.io/{nome-do-repositorio}", //ou somente o nome do repositório
+            "private": true,
+            ```  
+
+    4- Adicione um script de deploy no arquivo `package.json`.
+        ```diff
+        "scripts": {
+        +   "predeploy": "npm run build",
+        +   "deploy": "gh-pages -d build",
+            "start": "react-scripts start",
+            "build": "react-scripts build",
+        ```
+
+    5- No arquivo principal index.js alterar a const router para:
+
+        const router = createHashRouter
+            
+    5- Faça deploy no github pages:
+
+        ```shell
+        $ npm run deploy
+
+----------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+# --------------------------------GUIA COMPLETO PARA CONFIGURAR GH-PAGES---------------------------------------
+
 # Como dar deploy de uma aplicação React no Github-pages 
 
 \* criado usando `create-react-app`
